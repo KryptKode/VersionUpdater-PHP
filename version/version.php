@@ -22,7 +22,7 @@ if (!$version) {
 if(strcasecmp($_SERVER['REQUEST_METHOD'], 'POST') == 0) {
 
     $response = insert_version($conn, $json_obj);
-    echo (json_encode($response)." New");
+    echo (json_encode($response));
 
 }else{
     echo('Unsupported request method');
