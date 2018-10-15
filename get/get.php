@@ -6,8 +6,8 @@
  * Time: 10:04 AM
  */
 
-require "config.php";
-require "utils.php";
+require "../include/config.php";
+require "../include/utils.php";
 
 
 $version = get_version($conn);
