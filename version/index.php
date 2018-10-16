@@ -15,14 +15,15 @@ if(strcasecmp($_SERVER['REQUEST_METHOD'], 'POST') == 0) {
 
     $json_obj = json_decode($json_str, TRUE);
 
-    $version = $json_obj["version"];
-    if (!$version) {
+    if(array_key_exists("version", $json_obj)){
+        $response = insert_version($conn, $json_obj);
+        echo (json_encode($response));
+
+    }else{
         $msg = array("error" => "Required parameters are missing");
         echo json_encode($msg);
-        die("An error occurred!");
     }
-    $response = insert_version($conn, $json_obj);
-    echo (json_encode($response));
+
 
 }else{
     echo('Unsupported request method');

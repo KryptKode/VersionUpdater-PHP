@@ -32,7 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }else{
         $msg = array("error" => "Required parameters are missing");
         echo json_encode($msg);
-        die("An error occurred!");
     }
 
 

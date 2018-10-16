@@ -14,17 +14,14 @@ $json_str = file_get_contents('php://input');
 
 $json_obj = json_decode($json_str, TRUE);
 
-$version = $json_obj["version"];
-if (!$version) {
-    $msg = array("error" => "Required parameters are missing");
-    echo json_encode($msg);
-    die("An error occurred!");
-}
+    if(array_key_exists("version", $json_obj)){
+        $response = update_version($conn, $json_obj);
+        echo (json_encode($response));
+    }else{
+        $msg = array("error" => "Required parameters are missing");
+        echo json_encode($msg);
+    }
 
-
-
-    $response = update_version($conn, $json_obj);
-    echo (json_encode($response));
 
 }else{
     echo('Unsupported request method');
