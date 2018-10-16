@@ -8,6 +8,8 @@
 require "../include/config.php";
 require "../include/utils.php";
 
+if(strcasecmp($_SERVER['REQUEST_METHOD'], 'POST') == 0) {
+
 $json_str = file_get_contents('php://input');
 
 $json_obj = json_decode($json_str, TRUE);
@@ -19,7 +21,7 @@ if (!$version) {
     die("An error occurred!");
 }
 
-if(strcasecmp($_SERVER['REQUEST_METHOD'], 'POST') == 0) {
+
 
     $response = update_version($conn, $json_obj);
     echo (json_encode($response));

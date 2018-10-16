@@ -61,18 +61,19 @@ function get_whats_new($conn, $version_id){
 
 function insert_whats_new($conn, $data){
     $version_id = $data["version_id"];
-    $message = $data["whats_new_mesage"];
-    $sql_version = "INSERT INTO whats_new (version_id, whats_new_mesage) VALUES ('$version_id', '$message')";
+    $message = $data["whats_new_message"];
+    $sql_version = "INSERT INTO whats_new (version_id, whats_new_message) VALUES ('$version_id', '$message')";
 
     $result = $conn->query($sql_version);
+
     return $result === TRUE;
 }
 
 
 function update_whats_new($conn, $data){
     $id = $data["id"];
-    $message = $data["whats_new_mesage"];
-    $sql_version = "UPDATE whats_new SET  whats_new_mesage='$message' WHERE id='$id'";
+    $message = $data["whats_new_message"];
+    $sql_version = "UPDATE whats_new SET  whats_new_message='$message' WHERE id='$id'";
     $result = $conn->query($sql_version);
     if($result === TRUE){
         $id = get_version($conn)["id"];
