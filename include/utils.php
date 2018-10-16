@@ -52,7 +52,7 @@ function get_whats_new($conn, $version_id){
 
     $result = $conn->query($sql_whats_new);
     if($result->num_rows >0){
-        return $result->fetch_assoc();
+        return $result;
     }else{
         return null;
     }

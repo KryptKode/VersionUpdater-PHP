@@ -17,9 +17,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $version = get_version($conn);
 if($version){
 
-    $whats_new = get_whats_new($conn, $version["id"]);
-
-    if($whats_new){
+    $whats_new = array();
+    $count = 0;
+    $result = get_whats_new($conn, $version["version"]);
+    while ($row = mysqli_fetch_assoc($result)) {
+        $whats_new[] = $row;
+    }
+    if(count($whats_new) > 0){
         $data = array("version" => $version, "whats_new" => $whats_new);
         echo (json_encode($data));
     }else{
