@@ -10,6 +10,10 @@ require "./include/config.php";
 require "./include/utils.php";
 
 
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+
 $version = get_version($conn);
 if($version){
 
@@ -31,6 +35,8 @@ if($version){
     echo json_encode($data);
 }
 
-
+}else{
+    echo('Unsupported request method');
+}
 
 ?>
