@@ -1,7 +1,8 @@
 # Run Php without filename extension
+RewriteBase /
 RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteCond %{REQUEST_FILENAME}\.php -f
 RewriteRule ^(.*)$ $1.php
 
 # Return 404 if original request is .php

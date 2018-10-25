@@ -18,10 +18,11 @@ $version = get_version($conn);
 if($version){
 
     $whats_new = array();
-    $count = 0;
     $result = get_whats_new($conn, $version["version"]);
-    while ($row = mysqli_fetch_assoc($result)) {
-        $whats_new[] = $row;
+    if($result){
+        while ($row = mysqli_fetch_assoc($result)) {
+            $whats_new[] = $row;
+        }
     }
     if(count($whats_new) > 0){
         $data = array("version" => $version, "whats_new" => $whats_new);

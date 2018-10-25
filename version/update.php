@@ -8,7 +8,7 @@
 require "../include/config.php";
 require "../include/utils.php";
 
-if(strcasecmp($_SERVER['REQUEST_METHOD'], 'POST') == 0) {
+if(strcasecmp($_SERVER['REQUEST_METHOD'], 'POST') === 0) {
 
 $json_str = file_get_contents('php://input');
 

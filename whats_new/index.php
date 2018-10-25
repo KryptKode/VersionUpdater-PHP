@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if(count($json_obj) > 0){
 
         foreach ($json_obj as $key => $value) {
-//            echo "Key= ".$key." \n"."  Value= ".$value;
+            echo "\nKey= ".$key;
             $response = insert_whats_new($conn, $value);
         }
 
